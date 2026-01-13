@@ -1,21 +1,61 @@
 .auth-card {
   width: 100%;
   max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
 }
 
 .input-group {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   margin-top: 1rem;
 }
 
-.input-group label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0.3rem;
+.input-group input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  color: var(--text-main);
+  transition: 0.3s;
 }
 
-.input-group input {
-  padding: 0.7rem;
+.input-group label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.75rem;
+  color: var(--primary);
+  background: var(--bg-main);
+  padding: 0 4px;
+}
+
+#strength {
   border-radius: var(--radius);
-  border
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.small {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body.center {
+    padding: 1rem;
+  }
+}
