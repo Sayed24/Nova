@@ -1,27 +1,32 @@
-/* CSS RESET */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* DESIGN TOKENS */
+/* ROOT THEME */
 :root {
-  --bg-dark: #0b0f1a;
-  --bg-light: #111827;
-  --card-bg: rgba(255, 255, 255, 0.06);
-  --primary: #6cf2c2;
+  --bg-main: #020617;
+  --bg-soft: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255,255,255,0.15);
+
+  --primary: #22f5c3;
   --secondary: #7c7cff;
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
   --danger: #ef4444;
 
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
   --radius: 14px;
-  --blur: blur(14px);
+  --blur: blur(16px);
   --transition: 0.3s ease;
+
   --max-width: 1200px;
 }
 
+/* GLOBAL */
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -29,7 +34,17 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top, #111827, #020617);
+  background: radial-gradient(circle at top, #0f172a, #020617);
   color: var(--text-main);
   min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
