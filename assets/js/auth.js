@@ -1,80 +1,63 @@
-const usersKey = "nova_users";
-const sessionKey = "nova_session";
+// PASSWORD STRENGTH
+function checkStrength(password, bar) {
+  let strength = 0;
+  if (password.length > 5) strength++;
+  if (password.match(/[A-Z]/)) strength++;
+  if (password.match(/[0-9]/)) strength++;
+  if (password.match(/[\W]/)) strength++;
 
-/* UTIL */
-function getUsers() {
-  return JSON.parse(localStorage.getItem(usersKey)) || [];
+  let colors = ["#ef4444","#facc15","#22f5c3","#7c7cff"];
+  bar.style.width = (strength*25)+"%";
+  bar.style.background = colors[strength-1] || "#ef4444";
 }
 
-function saveUsers(users) {
-  localStorage.setItem(usersKey, JSON.stringify(users));
-}
-
-/* SIGN UP */
-const signupForm = document.getElementById("signupForm");
-if (signupForm) {
-  signupForm.addEventListener("submit", e => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    const users = getUsers();
-    if (users.find(u => u.email === email)) {
-      alert("User already exists");
-      return;
-    }
-
-    users.push({ name, email, password });
-    saveUsers(users);
-
-    localStorage.setItem(sessionKey, email);
-    window.location.href = "dashboard.html";
-  });
-}
-
-/* LOGIN */
+// LOGIN FORM
 const loginForm = document.getElementById("loginForm");
-if (loginForm) {
+if (loginForm){
+  const strengthBar = document.getElementById("strength");
+  const passwordInput = document.getElementById("password");
+
+  passwordInput.addEventListener("input", () => {
+    checkStrength(passwordInput.value, strengthBar);
+  });
+
   loginForm.addEventListener("submit", e => {
     e.preventDefault();
-
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const password = passwordInput.value;
 
-    const users = getUsers();
-    const user = users.find(
-      u => u.email === email && u.password === password
-    );
+    if (!email || !password) return alert("Please fill all fields.");
 
-    if (!user) {
-      alert("Invalid credentials");
-      return;
-    }
-
-    localStorage.setItem(sessionKey, email);
+    // save session
+    localStorage.setItem("nova-user", JSON.stringify({ email, loggedIn:true }));
     window.location.href = "dashboard.html";
   });
 }
 
-/* PASSWORD STRENGTH */
-const pwd = document.getElementById("password");
-const strength = document.getElementById("strength");
+// SIGNUP FORM
+const signupForm = document.getElementById("signupForm");
+if (signupForm){
+  const strengthBar = document.getElementById("strength");
+  const passwordInput = document.getElementById("password");
 
-if (pwd && strength) {
-  pwd.addEventListener("input", () => {
-    const val = pwd.value;
-    let score = 0;
-    if (val.length > 6) score++;
-    if (/[A-Z]/.test(val)) score++;
-    if (/[0-9]/.test(val)) score++;
-    if (/[^A-Za-z0-9]/.test(val)) score++;
+  passwordInput.addEventListener("input", () => {
+    checkStrength(passwordInput.value, strengthBar);
+  });
 
-    strength.textContent =
-      score < 2 ? "Weak" : score < 4 ? "Medium" : "Strong";
+  signupForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = passwordInput.value;
 
-    strength.style.color =
-      score < 2 ? "red" : score < 4 ? "orange" : "lightgreen";
+    if (!name || !email || !password) return alert("Please fill all fields.");
+
+    // store user in localStorage
+    let users = JSON.parse(localStorage.getItem("nova-users") || "[]");
+    users.push({ name, email, password });
+    localStorage.setItem("nova-users", JSON.stringify(users));
+    localStorage.setItem("nova-user", JSON.stringify({ email, loggedIn:true }));
+
+    window.location.href = "dashboard.html";
   });
 }
