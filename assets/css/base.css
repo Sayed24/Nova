@@ -1,1 +1,35 @@
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* DESIGN TOKENS */
+:root {
+  --bg-dark: #0b0f1a;
+  --bg-light: #111827;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --primary: #6cf2c2;
+  --secondary: #7c7cff;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --danger: #ef4444;
+
+  --radius: 14px;
+  --blur: blur(14px);
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: var(--text-main);
+  min-height: 100vh;
+}
