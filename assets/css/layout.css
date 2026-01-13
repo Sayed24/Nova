@@ -1,1 +1,22 @@
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1.5rem;
+}
 
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
