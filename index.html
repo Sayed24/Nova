@@ -5,53 +5,154 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOVA — Smart Productivity Platform</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <header class="container flex" style="justify-content: space-between;">
+  <header class="container flex space-between" id="navbar">
     <h2>NOVA</h2>
-    <nav class="flex">
+    <nav class="flex hide-mobile" id="desktop-nav">
       <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
       <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="login.html" class="btn btn-outline">Login</a>
     </nav>
+
+    <!-- Hamburger -->
+    <div id="hamburger" class="hide-desktop">
+      ☰
+    </div>
   </header>
 
-  <!-- HERO -->
+  <!-- MOBILE NAV MENU -->
+  <nav id="mobile-menu" class="hide-mobile hide-desktop card flex" style="flex-direction: column;">
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="login.html" class="btn btn-outline">Login</a>
+  </nav>
+
+  <!-- HERO SECTION -->
   <section class="container center" style="min-height: 80vh;">
-    <div class="grid grid-2">
+    <div class="grid grid-2 fade-up">
       <div>
-        <h1 style="font-size: clamp(2.2rem, 5vw, 3.5rem);">
+        <h1 style="font-size: clamp(2.2rem,5vw,3.5rem);">
           Work smarter.<br>Track everything.
         </h1>
-        <p style="color: var(--text-muted); margin: 1rem 0;">
+        <p style="color: var(--text-muted); margin:1rem 0;">
           A modern productivity platform built for focus, clarity, and results.
         </p>
         <div class="flex">
-          <a href="login.html" class="btn btn-primary">Get Started</a>
+          <a href="signup.html" class="btn btn-primary">Get Started</a>
           <button class="btn btn-outline">Live Demo</button>
         </div>
       </div>
 
       <div class="card">
-        <p>📊 Productivity Overview</p>
-        <p>✅ Tasks completed today: 7</p>
-        <p>🔥 Focus streak: 5 days</p>
+        <h3>Live Preview</h3>
+        <p>Tasks completed today: 7</p>
+        <p>Focus streak: 5 days</p>
+        <p>Weekly progress: 70%</p>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features" class="container grid grid-3">
+  <!-- FEATURE HIGHLIGHTS -->
+  <section id="features" class="container grid grid-3 fade-up" style="margin:3rem 0;">
     <div class="card">📋 Smart Task Manager</div>
     <div class="card">📈 Real-time Analytics</div>
     <div class="card">🤖 AI Assistant</div>
   </section>
 
+  <!-- HOW IT WORKS -->
+  <section id="how" class="container fade-up" style="margin:3rem 0;">
+    <h2>How It Works</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h4>Step 1</h4>
+        <p>Create your tasks quickly and organize your workflow.</p>
+      </div>
+      <div class="card">
+        <h4>Step 2</h4>
+        <p>Track your progress with real-time analytics and insights.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="container fade-up" style="margin:3rem 0;">
+    <h2>Pricing</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Free</h3>
+        <p>$0/month</p>
+        <ul>
+          <li>Basic Task Manager</li>
+          <li>Limited Analytics</li>
+        </ul>
+        <a class="btn btn-primary" href="signup.html">Start Free</a>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <p>$9/month</p>
+        <ul>
+          <li>Unlimited Tasks</li>
+          <li>Full Analytics</li>
+          <li>AI Assistant</li>
+        </ul>
+        <a class="btn btn-primary" href="signup.html">Start Pro</a>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p>$29/month</p>
+        <ul>
+          <li>Team Collaboration</li>
+          <li>Custom Reports</li>
+          <li>Priority Support</li>
+        </ul>
+        <a class="btn btn-primary" href="signup.html">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="container fade-up" style="margin:3rem 0;">
+    <h2>Testimonials</h2>
+    <div class="grid grid-3">
+      <div class="card">“NOVA transformed how I work!” — Alex</div>
+      <div class="card">“Amazing dashboard and AI assistant.” — Priya</div>
+      <div class="card">“Highly recommend for teams.” — John</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="container fade-up" style="margin:3rem 0; text-align:center;">
+    <h3>Subscribe to our newsletter</h3>
+    <form class="flex center" style="gap:0.5rem; flex-wrap: wrap;">
+      <input type="email" placeholder="Your email" required>
+      <button class="btn btn-primary">Subscribe</button>
+    </form>
+    <p style="margin-top:1rem; color: var(--text-muted);">&copy; 2026 NOVA. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hide-desktop");
+    });
+  </script>
 </body>
 </html>
