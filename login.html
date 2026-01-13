@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — NOVA</title>
+  <title>NOVA — Login</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -13,28 +14,26 @@
 </head>
 <body class="center">
 
-  <form class="auth-card card" id="loginForm">
-    <h2>Welcome back 👋</h2>
-    <p class="muted">Login to continue</p>
+  <form class="card auth-card fade-up" id="loginForm">
+    <h2>Welcome back</h2>
+    <p class="muted">Log in to your account</p>
 
     <div class="input-group">
+      <input type="email" id="email" required>
       <label>Email</label>
-      <input type="email" id="loginEmail" required>
     </div>
 
     <div class="input-group">
+      <input type="password" id="password" required>
       <label>Password</label>
-      <input type="password" id="loginPassword" required>
+      <div id="strength" style="height:5px;margin-top:4px;"></div>
     </div>
 
-    <button class="btn btn-primary w-full">Login</button>
+    <button class="btn btn-primary" type="submit">Login</button>
 
-    <p class="muted">
-      No account?
-      <a href="signup.html">Create one</a>
+    <p class="muted small">
+      No account? <a href="signup.html">Sign up</a>
     </p>
-
-    <p class="error" id="loginError"></p>
   </form>
 
   <script src="assets/js/auth.js"></script>
