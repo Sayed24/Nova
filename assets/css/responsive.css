@@ -1,7 +1,11 @@
-/* MOBILE FIRST */
+/* MOBILE */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
+  }
+
+  .hide-mobile {
+    display: none;
   }
 }
 
