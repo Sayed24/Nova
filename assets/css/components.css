@@ -3,7 +3,7 @@
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
   padding: 1.5rem;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--glass-border);
 }
 
 .btn {
@@ -20,13 +20,27 @@
   color: #020617;
 }
 
-.btn-primary:hover {
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+}
+
+.btn:hover {
   transform: translateY(-2px);
   opacity: 0.9;
 }
 
-.btn-outline {
+input, textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
   color: var(--text-main);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
 }
