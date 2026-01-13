@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — NOVA</title>
 
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="center">
+
+  <form class="auth-card card" id="loginForm">
+    <h2>Welcome back 👋</h2>
+    <p class="muted">Login to continue</p>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="loginEmail" required>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="loginPassword" required>
+    </div>
+
+    <button class="btn btn-primary w-full">Login</button>
+
+    <p class="muted">
+      No account?
+      <a href="signup.html">Create one</a>
+    </p>
+
+    <p class="error" id="loginError"></p>
+  </form>
+
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
