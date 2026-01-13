@@ -5,18 +5,23 @@
   padding: 1.5rem;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;
-}
-
-.flex {
-  display: flex;
-  gap: 1rem;
 }
 
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
